@@ -1,4 +1,7 @@
 {
     "usingComponents": {},
-    "navigationStyle": "custom"
-}
+    "navigationBarBackgroundColor": "#44ADFB",
+    "navigationBarTitleText": "活动主页",
+    "backgroundColor": "#eeeeee",
+    "backgroundTextStyle": "light"
+  }

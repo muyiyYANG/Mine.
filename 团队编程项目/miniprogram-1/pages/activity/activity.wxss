@@ -2,49 +2,38 @@
     display: flex;
     align-items: center;
 }
-
-/* 状态栏 */
-.bar-box {
-    background-color: white;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 999;
-}
-
-.bar-title {
-    text-align: center;
-    font-size: 34rpx;
-    color: white;
-}
-
-.bar {
-    width: 80%;
-    margin-right: 30%;
-    margin-top: 1.5%;
-    margin-left: 20rpx;
-}
-
-.top-head {
-    width: 15%;
-    border-radius: 50%;
-    box-shadow: 0 0 5rpx 5rpx #f1f1f1;
-}
-
-.welcome {
-    margin-left: 20rpx;
+/**搜索框**/
+.search-container{
+    
+    justify-content: space-between;
+    align-items: center;
+    padding: 10rpx 20rpx;
+    box-sizing: border-box;
+    background-color: rgb(250, 249, 249);
+  }
+  .search-left{
+    background-color: rgb(255, 255, 255);
+    border-radius: 40rpx;
+    padding-right: 40rpx;
+    box-sizing: border-box;
+  }
+  .search-left image{
+    width: 48rpx;
+    height: 48rpx;
+    padding: 10rpx 20rpx;
+    vertical-align: middle;
+  }
+  .search-left input{
     font-size: 30rpx;
-    font-weight: bold;
-}
+    display: inline-block;
+    vertical-align: middle;
+    width: calc(100% - 88rpx);
+  }
+
 
 /* 轮播图 */
 .swiper-box {
     margin: 20rpx 0;
-}
-
-.swiper {
-    width: 100%;
 }
 
 .swiper-item {
@@ -66,8 +55,8 @@
 
 /* 二级菜单 */
 .tab-box {
-    margin: 30rpx 20rpx 30rpx;
-    box-shadow: 0 0 5rpx 5rpx #f1f1f1;
+    margin: 20rpx 10rpx 10rpx;
+    box-shadow: 0 0 5rpx 5rpx #e9ff20d8;
     padding: 6% 0;
     border-radius: 20rpx;
 }
@@ -87,18 +76,6 @@
     margin: 5rpx 0;
 }
 
-.step-box {
-    margin: 20rpx 20rpx 30rpx;
-    box-shadow: 0 0 5rpx 5rpx #f1f1f1;
-    padding: 5% 20rpx;
-    border-radius: 20rpx;
-}
-
-.step {
-    justify-content: space-between;
-    font-size: 30rpx;
-    margin-top: 20rpx;
-}
 
 /* 数据列表 */
 .data-box {
@@ -141,7 +118,7 @@
 }
 
 .row-title {
-    font-size: 30rpx;
+    font-size: 31rpx;
     padding: 0 5rpx;
     display: -webkit-box;
     word-break: break-all;
@@ -151,19 +128,9 @@
     -webkit-line-clamp: 2;
 }
 
-.row-text {
-    padding: 20rpx 10rpx;
-    display: flex;
-    justify-content: space-between;
-}
 
-.row-num {
-    color: gray;
-    
-    font-size: 32rpx;
-}
-
-.row-bm {
+.row-find {
+    margin-left: 7em;
     font-size: 28rpx;
-    color: red;
+    color: rgb(34, 192, 240);
 }

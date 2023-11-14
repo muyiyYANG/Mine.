@@ -8,73 +8,94 @@ Page({
         viewHeight: 640, // 默认高度
         current: 0,
         background: [
-            'https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/866dd9891938e90b52ec87522b678a28b540c9244c3b38004ca3670776237550954b02f3e73351f2a43c980075659c79?pictype=scale&from=30113&version=3.3.3.3&fname=1684975111844.jpeg&size=750',
-            'https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/7f881ce187cb0bb0924fc28e94b7e80895d93a035c3e997c4f25229253418c5b78546bbdff1024dee3dc2da40a7da940?pictype=scale&from=30113&version=3.3.3.3&fname=1684975459289.jpeg&size=750',
-            'https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/2e2fda72ef58b91dcb1bd185062479dee49a24d14302c69a9f8a5e7f1032c451b81e10203aa09efe85745f6a49722be2?pictype=scale&from=30113&version=3.3.3.3&fname=1684975468378.jpeg&size=750'
+            '../images/activity1.jpg',
+            '../images/activity2.jpg',
+            '../images/activity3.jpg'
         ],
         tabList: [{
                 id: '1',
-                src: '',
-                title: '菜单一'
+                src: '../images/activity1.jpg',
+                title: '活动'
             },
             {
                 id: '2',
-                src: '',
-                title: '菜单二'
+                src: '../images/activity2.jpg',
+                title: '部落'
             },
             {
                 id: '3',
-                src: '',
-                title: '菜单三'
+                src: '../images/activity3.jpg',
+                title: '平台'
             },
             {
                 id: '4',
-                src: '',
-                title: '菜单四'
+                src: '../images/activity4.jpg',
+                title: '查看'
             },
-            {
-                id: '4',
-                src: '',
-                title: '菜单五'
-            }
+           
         ],
         dataList: [{
-                title: '1！',
-                text: '详细内容',
+                time:'2023.11.1-2023.11.5',
+                title: '大学生观影活动！',
                 number: '897',
-                src: 'https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/2e2fda72ef58b91dcb1bd185062479dee49a24d14302c69a9f8a5e7f1032c451b81e10203aa09efe85745f6a49722be2?pictype=scale&from=30113&version=3.3.3.3&fname=1684975468378.jpeg&size=750'
+                src: '../images/activity1.jpg'
             },
-            {
-                title: '2！',
-                text: '详细内容',
+            {   
+                time:'2023.11.2-2023.11.6',
+                title: '2023“联合国采购杯”全国大学生英语阅读大赛',
                 number: '578',
-                src: 'https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/2e2fda72ef58b91dcb1bd185062479dee49a24d14302c69a9f8a5e7f1032c451b81e10203aa09efe85745f6a49722be2?pictype=scale&from=30113&version=3.3.3.3&fname=1684975468378.jpeg&size=750'
+                src: '../images/activity2.jpg'
             },
-            {
-                title: '3！',
-                text: '详细内容',
+            {   
+                time:'2023.11.4-2023.11.8',
+                title: '第31届世界大学生夏季运动会',
                 number: '78',
-                src: 'https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/866dd9891938e90b52ec87522b678a28b540c9244c3b38004ca3670776237550954b02f3e73351f2a43c980075659c79?pictype=scale&from=30113&version=3.3.3.3&fname=1684975111844.jpeg&size=750'
+                src: '../images/activity3.jpg'
             },
-            {
-                title: '4！',
-                text: '详细内容',
+            {   
+                time:'2023.11.6-2023.11.12',
+                title: '全国大学生英语能力挑战赛',
                 number: '478',
-                src: 'https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/866dd9891938e90b52ec87522b678a28b540c9244c3b38004ca3670776237550954b02f3e73351f2a43c980075659c79?pictype=scale&from=30113&version=3.3.3.3&fname=1684975111844.jpeg&size=750'
+                src: '../images/activity4.jpg'
             },
-            {
-                title: '5！',
-                text: '详细内容',
+            {   
+                time:'2023.11.5-2023.11.28',
+                title: '中国高校元宇宙知识竞赛',
                 number: '378',
-                src: 'https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/7f881ce187cb0bb0924fc28e94b7e80895d93a035c3e997c4f25229253418c5b78546bbdff1024dee3dc2da40a7da940?pictype=scale&from=30113&version=3.3.3.3&fname=1684975459289.jpeg&size=750'
+                src: '../images/activity5.jpg'
+            },
+            {   
+                time:'2023.11.1-2023.11.28',
+                title: '半导体专项赛',
+                number: '378',
+                src: '../images/activity6.jpg'
             },
         ]
+    },
+    
+    // 监听搜索输入框输入事件
+    onSearchInput(e) {
+        const keyword = e.detail.value.trim();
+        if (keyword === '') {
+        // 如果搜索关键词为空，则显示全部活动
+        this.setData({
+            searchResultList: this.data.dataList
+        });
+        } else {
+        // 根据关键词进行搜索
+        const resultList = this.data.dataList.filter(item => item.title.includes(keyword));
+        this.setData({
+            searchResultList: resultList
+        });
+        }
     },
     bindchange(e) {
         this.setData({
             current: e.detail.current
         })
     },
+    
+
     /**
      * 生命周期函数--监听页面加载
      */
