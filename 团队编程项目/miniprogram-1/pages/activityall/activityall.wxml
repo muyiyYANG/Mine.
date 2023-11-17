@@ -1,0 +1,30 @@
+<!-- 数据列表 -->
+<view class="data-box">
+    <view class="level">
+        <view class="line"></view>
+        <view class="title">活动内容</view>
+    </view>
+    <view class="data-list" >
+        <block wx:for="{{dataList}}" wx:for-index="index" wx:for-item="item" wx:key="item">
+            <view class="col-info" style="{{index%2==0?'margin-right: 1%;':'margin-left: 1%;'}}" bindtap="goToActivity" data-index="{{index}}">
+                <image src="{{item.src}}" class="row-img" mode="widthFix"></image>
+                <view class="row-time">{{item.time}}</view>
+                <view class="row-title">{{item.title}}</view>
+            </view>
+        </block>
+    </view>
+</view>
+
+<!-- 底部菜单 -->
+<!-- index.wxml -->
+<view class="level tab-box">
+  <block wx:for="{{tabList}}" wx:for-index="index" wx:for-item="item" wx:key="item">
+    <view class="tab-list" bindtap="onTapTab" data-index="{{index}}">
+      <image class="tab-img" src="{{item.src}}" mode="widthFix"></image>
+      <view class="tab-text">{{item.title}}</view>
+    </view>
+  </block>
+</view>
+
+
+

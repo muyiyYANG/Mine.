@@ -1,0 +1,91 @@
+<!-- detial.wxml -->
+<view class="container">
+  <image class="activity-image" src="{{activity.image}}"></image>
+
+    <!-- 切换页面 -->
+    <view class="center-box">
+        <view class="nav">
+            <view class="left {{current==1?'select':''}}" bindtap="click" data-code="1">
+            <button class="select">信息</button>
+            </view>
+            <view class="right {{current==0?'select':''}}" bindtap="click" data-code="0">
+            <button class="select">详情</button>
+            </view>
+        </view>
+    </view>
+
+    <view class="activity-details" hidden="{{current==0}}">
+        <view class="detail-item">
+            <text class="font1">时间范围</text>
+            <view>
+            <text class="font2" style="display: block;">{{activity.timeRange1}}</text>
+            <text class="font2" style="display: block;">{{activity.timeRange2}}</text>
+            </view>
+        </view>
+
+        <view class="detail-item">
+            <text class="font1">活动级别</text>
+            <view>
+            <text class="font2">当前活动级别为</text>
+            <text class="font3">{{activity.level}}</text>
+            </view>
+        </view>
+
+        <view class="detail-item">
+            <text class="font1">参与范围</text>
+            <view>
+                <text class="font2">当前活动参与范围为</text>
+                <text class="font3">{{activity.participation}}</text>
+            </view>
+        </view>
+
+
+        <view class="detail-item">
+            <text class="font1">报名人数</text>
+            <view>
+            <text class="font2">当前活动已报名人数</text>
+            <text class="font3">{{activity.enrolled}} / {{activity.maxCapacity}}</text>
+            </view>
+        </view>
+
+        <view class="detail-item">
+        <text class="font1">学分设置</text>
+            <view>
+            <text class="font2" style="display: block;">{{activity.credittype}}</text>
+            <text class="font2" style="display: block;">学分:{{activity.credit}}  名额:{{activity.maxCapacity}}</text>
+            </view>
+        </view>
+    </view>
+
+    <view class="activity-details" hidden="{{current==1}}">
+        <view class="detail-item">
+            <text class="font1">参数目的</text>
+            <view>
+            <text class="font2" style="display: block;">{{activity.neirong1}}\n{{activity.neirong2}}\n{{activity.neirong3}}\n{{activity.neirong4}}\n{{activity.neirong5}}</text>
+            </view>
+        </view>
+
+        <view class="detail-item">
+            <text class="font1">活动内容</text>
+            <view>
+            <text class="font2" style="display: block;">{{activity.neirong6}}\n{{activity.neirong7}}\n{{activity.neirong8}}\n{{activity.neirong9}}\n{{activity.neirong10}}</text>
+
+            </view>
+        </view>
+
+        <view class="detail-item">
+            <text class="font1">参数须知</text>
+            <view>
+            <text class="font2" style="display: block;">{{activity.neirong11}}</text>
+
+            </view>
+        </view>
+
+    </view>
+    <button class="signup-button" disabled="{{activity.enrolled >= activity.maxCapacity}}" bindtap="signup" data-full="{{activity.enrolled >= activity.maxCapacity ? 'true' : 'false'}}">
+  {{activity.enrolled >= activity.maxCapacity ? '人数已满，不可报名' : '点击报名'}}
+</button>
+
+
+</view>
+

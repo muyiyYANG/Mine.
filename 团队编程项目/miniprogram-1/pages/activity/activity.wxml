@@ -2,48 +2,61 @@
 <view class="search-container">
   <view class="search-left">
     <image src="../images/search.png" />
-    <input type="text" placeholder="搜索" bindinput="onSearchInput"/>
+    <input style="width: 462rpx; height: 66rpx; display: block; box-sizing: border-box" type="text" placeholder="搜索" bindinput="onSearchInput" value="{{ keyword }}"/>
   </view>
+  <button class="search-button" bindtap="onSearchClick" style="width: 134rpx; height: 66rpx; display: block; box-sizing: border-box; left: 0rpx; top: 0rpx; position: relative">搜索</button>
+
+  <!-- 添加下拉框组件 -->
+  <view class="dropdown" wx:if="{{ searchResultList.length > 0 }}">
+  <view class="dropdown-item" wx:for="{{ searchResultList }}" wx:key="{{ index }}" bindtap="onDropDownClick" data-title="{{ item.title }}" >{{ item.title }}</view>
+
 </view>
 
+</view>
 
 <!-- 轮播图 -->
 <view class="swiper-box">
-    <swiper class="swiper" indicator-dots="true" indicator-active-color="#10AEFF" style="height: {{viewHeight*0.23}}px;" bindchange="bindchange" autoplay="true" interval="3000" duration="500" previous-margin="20px" next-margin="20px" circular="{{true}}">
-        <block wx:for="{{background}}" wx:key="*this">
-            <swiper-item class="swiper-item">
-                <image src="{{item}}" style="height: {{current == index ?viewHeight*0.22:viewHeight*0.18}}px;" class="item-img {{current == index ? 'active-img': ''}}"></image>
-            </swiper-item>
-        </block>
-    </swiper>
+  <swiper class="swiper" indicator-dots="true" indicator-active-color="#10AEFF" style="height: {{viewHeight*0.23}}px;" bindchange="bindchange" autoplay="true" interval="3000" duration="500" previous-margin="20px" next-margin="20px" circular="{{true}}">
+    <block wx:for="{{background}}" wx:key="*this">
+      <swiper-item class="swiper-item" >
+        <image src="{{item}}" style="height: {{current == index ?viewHeight*0.22:viewHeight*0.18}}px;" class="item-img {{current == index ? 'active-img': ''}}" bindtap="goToDetailPage" data-index="{{index}}"></image>
+    </swiper-item>
+    </block>
+  </swiper>
 </view>
 
-<!-- 二级菜单 -->
-<view class="level tab-box">
-    <block wx:for="{{tabList}}" wx:for-index="index" wx:for-item="item" wx:key="item">
-        <view class="tab-list">
-            <image class="tab-img" src="{{item.src}}" mode="widthFix"></image>
-            <view class="tab-text">{{item.title}}</view>
-        </view>
-    </block>
-</view>
+
+
 
 <!-- 数据列表 -->
 <view class="data-box">
     <view class="level">
         <view class="line"></view>
         <view class="title">活动内容</view>
+        <view class="title-right" bind:tap="activityall">点击查看更多</view>
     </view>
-    <view class="data-list">
+    <view class="data-list" >
         <block wx:for="{{dataList}}" wx:for-index="index" wx:for-item="item" wx:key="item">
-            <view class="col-info" style="{{index%2==0?'margin-right: 1%;':'margin-left: 1%;'}}">
+            <view class="col-info" style="{{index%2==0?'margin-right: 1%;':'margin-left: 1%;'}}" bindtap="goToActivity" data-index="{{index}}">
                 <image src="{{item.src}}" class="row-img" mode="widthFix"></image>
+                <view class="row-time">{{item.time}}</view>
                 <view class="row-title">{{item.title}}</view>
-                <view class="row-cotent">
-                    <text class="row-left"></text>
-                    <text class="row-find"  >{{item.number}}点击报名</text>
-                </view>
+
             </view>
         </block>
     </view>
 </view>
+
+<!-- 底部菜单 -->
+<!-- index.wxml -->
+<view class="level tab-box">
+  <block wx:for="{{tabList}}" wx:for-index="index" wx:for-item="item" wx:key="item">
+    <view class="tab-list" bindtap="onTapTab" data-index="{{index}}" style="width: 244rpx; height: 115rpx; display: block; box-sizing: border-box">
+      <image class="tab-img" src="{{item.src}}" mode="widthFix"></image>
+      <view class="tab-text">{{item.title}}</view>
+    </view>
+  </block>
+</view>
+
+
+

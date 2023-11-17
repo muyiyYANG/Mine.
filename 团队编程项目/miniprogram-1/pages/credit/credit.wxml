@@ -1,0 +1,16 @@
+<!--pages/credit/credit.wxml-->
+<view class="container">
+  <text class="total-credit">累计学分：{{totalcredit}} 分</text>
+  <view class="credit-list">
+    <view class="credit-item">
+      <view class="date">活动时间</view>
+      <view class="score">得分</view>
+    </view>
+    <block wx:for="{{creditList}}" wx:key="index">
+      <view class="credit-item">
+        <text class="date">{{item.date}}</text>
+        <text class="score">{{item.score}} 分</text>
+      </view>
+    </block>
+  </view>
+</view>
