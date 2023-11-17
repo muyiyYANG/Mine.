@@ -3,5 +3,6 @@
     "navigationBarBackgroundColor": "#44ADFB",
     "navigationBarTitleText": "活动邦",
     "backgroundColor": "#eeeeee",
-    "backgroundTextStyle": "light"
+    "backgroundTextStyle": "light",
+    "custom": false
 }

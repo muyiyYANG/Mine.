@@ -1,0 +1,53 @@
+<!--pages/userinfo/userinfo.wxml-->
+<view class="container">
+  <view class="user-info">
+    <text class="label">姓名：</text>
+    <text class="value">{{name}}</text>
+  </view>
+  <view class="divider"></view>
+  <view class="user-info">
+    <text class="label">学号：</text>
+    <text class="value">{{studentId}}</text>
+  </view>
+  <view class="divider"></view>
+  <view class="user-info">
+    <text class="label">学校：</text>
+    <text class="value">{{school}}</text>
+  </view>
+  <view class="divider"></view>
+  <view class="user-info">
+    <text class="label">学院：</text>
+    <text class="value">{{college}}</text>
+  </view>
+  <view class="divider"></view>
+  <view class="user-info">
+    <text class="label">专业：</text>
+    <text class="value">{{major}}</text>
+  </view>
+  <view class="divider"></view>
+  <view class="user-info">
+    <text class="label">年级：</text>
+    <text class="value">{{grade}}</text>
+  </view>
+  <view class="divider"></view>
+  <view class="user-info">
+    <text class="label">班级：</text>
+    <text class="value">{{class}}</text>
+  </view>
+  <view class="divider"></view>
+  <view class="user-info">
+    <text class="label">学制：</text>
+    <text class="value">{{academicSystem}}</text>
+  </view>
+  <view class="divider"></view>
+  <view class="user-info">
+    <text class="label">培养层次：</text>
+    <text class="value">{{cultivationLevel}}</text>
+  </view>
+  <button bindtap="editProfile" style="border: 1px solid gray;">编辑个人资料</button>
+</view>
+
+
+
+
+

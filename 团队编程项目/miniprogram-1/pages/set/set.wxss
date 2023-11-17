@@ -1,0 +1,53 @@
+/* pages/set/set.wxss */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  height:100vh;
+}
+.list-wrapper {
+  width: 100%;
+}
+
+/* 横着的分割View样式 */
+/*分割线样式*/
+.div-line{
+  background: #E0E3DA;
+  width: 100%;
+  height: 5rpx;
+}
+
+.list-item {
+  width: 100%;
+  height: 120rpx;
+}
+
+.list-item_active {
+  background-color: #E0E3DA;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 120rpx;
+}
+.item-text {
+  position: fixed;
+  left: 100rpx;
+  font-size: 38rpx;
+}
+.item-array {
+  position: fixed;
+  right: 60rpx;
+  font-size: 60rpx;
+}
+
+.menu-icon {
+  position: fixed;
+  left: 50rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
+

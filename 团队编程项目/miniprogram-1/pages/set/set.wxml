@@ -1,0 +1,19 @@
+<!--pages/set/set.wxml-->
+<!--index.wxml-->
+<view class="container">
+  <view class="list-wrapper">
+    <block wx:for="{{menuitems}}" wx:key="item">
+      <navigator url="{{item.url}}" class="list-item" hover-class="list-item_active">
+        <view class="item">
+        <image class="menu-icon" src="{{item.icon}}"></image>
+          <text class="item-text">{{item.text}}</text>
+          <text>{{item.tips}}</text>
+          <text class='item-array'>></text>
+        </view>
+        <view class="div-line"></view>
+      </navigator>
+    </block>
+  </view>
+  <button bindtap="logout" style="color: red;">退出账号</button>
+  </view>
+

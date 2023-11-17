@@ -1,0 +1,24 @@
+<!--pages/activity/activity.wxml-->
+<view class="container">
+  <view class="title">我的活动</view>
+  <view class="table">
+    <view class="row">
+      <view class="cell">活动名称</view>
+      <view class="cell">活动地点</view>
+      <view class="cell">活动时间</view>
+      <view class="cell">是否参加过</view>
+    </view>
+    <view class="row" wx:for="{{activities}}" wx:key="index">
+      <view class="cell">{{item.name}}</view>
+      <view class="cell">{{item.location}}</view>
+      <view class="cell">{{item.time}}</view>
+      <view class="cell">{{item.joined}}</view>
+    </view>
+  </view>
+</view>
+
+
+
+
+
+

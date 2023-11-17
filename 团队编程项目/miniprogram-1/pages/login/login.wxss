@@ -16,6 +16,11 @@ page{
   .next-text{
     margin-top: 15rpx;
   }
+  .youke{
+      font-size: 10px;
+      margin-top: 15rpx;
+      color: rgb(255, 0, 0);
+  }
 
   /* 内容 */
   .center-box{
@@ -42,11 +47,11 @@ page{
     flex: 1;
     font-weight: bold;
   }
-  .select{
+  .select {
     font-weight: bold;
     color: #33ccff;
   }
-  .select text{
+  .select  text{
     padding-bottom: 5rpx;
     border-bottom-left-radius: 10rpx;
     border-bottom-right-radius: 10rpx;
@@ -62,16 +67,25 @@ page{
     border-bottom: 1rpx solid #f1f1f1;
   }
 
+  .eye{
+    width: 25px;
+    height: 20px;
+    margin-left: 60px;
+  }
+
   .input-box{
     margin: 20rpx;
+
   }
 
   /*提示输入文字*/
   .input{
     padding-left: 20rpx;
-    font-size: 30rpx;
+    font-size: 27rpx;
   }
-  
+
+
+
   /*获取验证码*/
   .input-code{
     position: absolute;
