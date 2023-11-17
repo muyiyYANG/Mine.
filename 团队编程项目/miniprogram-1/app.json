@@ -1,17 +1,48 @@
-
 {
     "pages":[
         "pages/login/login",
         "pages/retrieve-password/retrieve-password",
-        "pages/activity/activity"
-
+        "pages/activity/activity",
+        "pages/detail1/detail1",
+        "pages/detail2/detail2",
+        "pages/detail3/detail3",
+        "pages/detail4/detail4",
+        "pages/detail5/detail5",
+        "pages/detail6/detail6",
+        "pages/activityall/activityall",
+        "pages/joinactivity/joinactivity",
+        "pages/index/index",
+        "pages/userinfo/userinfo",
+        "pages/credit/credit",
+        "pages/release/release",
+        "pages/set/set",
+        "pages/userinfo1/userinfo1",
+        "pages/user/user",
+        "pages/002/002",
+        "pages/005/005",
+        "pages/006/006",
+        "pages/003/003",
+        "pages/007/007"
     ],
+    "permission": {  
+        "scope.userLocation": {  
+          "desc": "你的位置信息将用于小程序定位功能"  
+        },  
+        "camera": {  
+          "desc": "你的摄像头将用于小程序拍照功能"  
+        },  
+        "photoAlbum": {  
+          "desc": "你的相册将用于小程序图片选择功能"  
+        }  
+      },
     "window":{
-      "backgroundTextStyle":"light",
-      "navigationBarBackgroundColor": "#fff",
-      "navigationBarTitleText": "Weixin",
-      "navigationBarTextStyle":"black"
+        "usingComponents": {},
+        "navigationBarBackgroundColor": "#44ADFB",
+        "navigationBarTitleText": "活动邦",
+        "backgroundColor": "#eeeeee",
+        "backgroundTextStyle": "light"
     },
   "style": "v2",
   "sitemapLocation": "sitemap.json"
 }
+
