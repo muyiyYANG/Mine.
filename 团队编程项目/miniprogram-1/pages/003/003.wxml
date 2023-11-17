@@ -1,0 +1,12 @@
+<view class="container"> 
+  <text class="title" style="position:absolute;top: 250px;">已成功报名！</text>  
+</view>
+<view> 
+  <text>{{input_Sno}}</text>  
+</view>
+
+<view>  
+  <image src="/pages/assets/V.png "style="position:absolute;top: 10px;left: 45px" mode="aspectFit"/>  
+</view>
+
+<button bindtap="Back_01"style="position:absolute;top: 400px;left: 200rpx;border-radius: 50px;">确定</button>

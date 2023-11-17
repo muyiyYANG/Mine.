@@ -1,0 +1,14 @@
+{
+  "usingComponents": {},
+  "navigationBarTitleText": "报名成功",
+  "resources": {  
+    "images": [  
+      {  
+        "src": "/pages/assets/V.png",  
+        "width": 70,
+        "height": 70,
+        "resizeMode": "contain"  
+      }  
+    ]  
+  } 
+}

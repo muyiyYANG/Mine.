@@ -1,0 +1,11 @@
+
+<view class="container">
+  <view class="search-box">
+    <input type="text" placeholder="搜索" bindinput="onInput" />
+  </view>
+  <view class="history-list">
+    <block wx:for="{{historyList}}" wx:key="*this" bindtap="onItemTap">
+      <text>{{item}}</text>
+    </block>
+  </view>
+</view>

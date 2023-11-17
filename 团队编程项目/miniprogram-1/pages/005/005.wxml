@@ -1,0 +1,23 @@
+<view class="container">
+  <view class="title">活动添加</view>
+  <form bindsubmit="submitForm">
+    <view class="input-group">
+      <text>活动名称：</text>
+      <input type="text" name="activityName" placeholder="请输入活动名称" />
+    </view>
+    <view class="input-group">
+      <text>活动时间：</text>
+      <input type="date" name="activityTime" placeholder="请输入活动时间"/>
+    </view>
+    <view class="input-group">
+      <text>活动地点：</text>
+      <input type="text" name="activityLocation" placeholder="请输入活动地点" />
+    </view>
+    <view class="input-group">
+      <text>活动描述：</text>
+      <textarea name="activityDescription" placeholder="请输入活动描述"></textarea>
+    </view>
+    <button class="btn blue" form-type="submit"style="position:absolute;top: 470px;left: 200rpx;">提交</button>
+  </form>
+</view>
+<button class="btn blue"bindtap="uploadImage"style="position:absolute;top: 700rpx;left: 200rpx;">添加图片</button>

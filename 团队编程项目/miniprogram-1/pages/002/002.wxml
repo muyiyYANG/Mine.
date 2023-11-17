@@ -1,0 +1,39 @@
+
+<view style="position:absolute;top: 100rpx;left: 50px;"> 
+  <text class="title">{{Sno}}</text>  
+</view>
+<view style="position:absolute;top: 100rpx;left: 150px;">  
+  <input type="text" placeholder="请输入" bindinput="inputChangeHandler" />  
+</view>
+
+<view style="position:absolute;top: 200rpx;left: 50px;"> 
+  <text class="title">{{Sname}}</text>  
+</view>
+<view style="position:absolute;top: 200rpx;left: 150px;">  
+  <input type="text" placeholder="请输入" bindinput="inputChangeHandler" />  
+</view>
+
+<view style="position:absolute;top: 300rpx;left: 50px;"> 
+  <text class="title">{{Academy}}</text>  
+</view>
+<view style="position:absolute;top: 300rpx;left: 150px;">  
+  <input type="text" placeholder="请输入" bindinput="inputChangeHandler" />  
+</view>
+
+<view style="position:absolute;top: 400rpx;left: 50px;"> 
+  <text class="title">{{Class}}</text>  
+</view>
+<view style="position:absolute;top: 400rpx;left: 150px;">  
+  <input type="text" placeholder="请输入" bindinput="inputChangeHandler" />  
+</view>
+
+<view style="position:absolute;top: 500rpx;left: 50px;"> 
+  <text class="title">{{Tele}}</text>  
+</view>
+<view style="position:absolute;top: 500rpx;left: 150px;">  
+  <input type="text" placeholder="请输入手机号" bindinput="inputChangeHandler" />  
+</view>
+
+
+
+<button class="btn blue" bindtap="joinAct"style="position:absolute;top: 400px;left: 200rpx;">报名</button>  
