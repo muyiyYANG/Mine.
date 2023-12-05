@@ -1,57 +1,69 @@
 // index.js
-//获取应用实例
 const app = getApp();
-
-Page({
-  /**
-   * 页面的初始数据
-   */
-  data: {
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    menuitems: [
-      { text: '基本信息', url: '../userinfo/userinfo', icon: '../../images/jibenxinxi.png', tips: '' },
-      { text: '我的活动', url: '../joinactivity/joinactivity',icon: '../../images/shouye.png', tips: '' },
-      { text: '学分', url: '../credit/credit',icon: '../../images/xuefen.png', tips: '' },
-      { text: '发布活动', url: '../005/005',icon: '../../images/fabuhuodong.png', tips: '' },
-      { text: '设置', url: '../set/set',icon: '../../images/shezhi.png', tips: '' },
-    ]
+const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
+Component({
+  data:{
+      userInfo: {
+        avatarUrl: defaultAvatarUrl,
+        nickName: '',
+      },
+      hasUserInfo: false,
+      canIUseGetUserProfile: wx.canIUse('getUserProfile'),
+      canIUseNicknameComp: wx.canIUse('input.type.nickname'),
+      menuitems: [
+        { text: '基本信息', url: '../userinfo/userinfo', icon: '../../images/jibenxinxi.png', tips: '' },
+        { text: '我的活动', url: '../joinactivity/joinactivity',icon: '../../images/shouye.png', tips: '' },
+        { text: '学分', url: '../credit/credit',icon: '../../images/xuefen.png', tips: '' },
+        { text: '发布活动', url: '../005/005',icon: '../../images/fabuhuodong.png', tips: '' },
+        { text: '消息通知', url: '../notice/notice',icon: '../../images/yonghuzhongxin-xiaoxitongzhi.png', tips: '' },
+        { text: '设置', url: '../set/set',icon: '../../images/shezhi.png', tips: '' },
+      ]
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    var that = this;
-    if (app.globalData.userInfo) {
-      that.setUserInfo(app.globalData.userInfo);
-    } else if (that.data.canIUse) {
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        that.setUserInfo(res.userInfo);
+    methods: {
+      onChooseAvatar(e) {
+        const { avatarUrl } = e.detail
+        const { nickName } = this.data.userInfo
+        this.setData({
+          "userInfo.avatarUrl": avatarUrl,
+          hasUserInfo: nickName && avatarUrl && avatarUrl !== defaultAvatarUrl,
+        })
+      },
+      onInputChange(e) {
+        const nickName = e.detail.value
+        const { avatarUrl } = this.data.userInfo
+        this.setData({
+          "userInfo.nickName": nickName,
+          hasUserInfo: nickName && avatarUrl && avatarUrl !== defaultAvatarUrl,
+        })
+      },
+      getUserProfile(e) {
+        // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认，开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
+        wx.getUserProfile({
+          desc: '展示用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+          success: (res) => {
+            console.log(res)
+            this.setData({
+              userInfo: res.userInfo,
+              hasUserInfo: true
+            })
+          }
+        })
+      },
+    },
+    onLoad: function () {
+      const userInfo = wx.getStorageSync('userInfo');
+      if (userInfo) {
+        this.setData({
+          hasUserInfo: true,
+          userInfo,
+        });
+      } else {
+        this.setData({
+          canIUseGetUserProfile: wx.canIUse('getUserProfile'),
+        });
       }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          that.setUserInfo(res.userInfo);
-        }
-      })
-    }
-  },
-
-  getUserInfo: function (e) {
-    this.setUserInfo(e.detail.userInfo);
-  },
-
-  setUserInfo: function (userInfo) {
-    if (userInfo != null) {
-      app.globalData.userInfo = userInfo
-      this.setData({
-        userInfo: userInfo,
-        hasUserInfo: true
-      })
-    }
-  }
+    },
+    
+    
 })
+

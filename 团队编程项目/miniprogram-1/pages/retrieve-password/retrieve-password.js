@@ -165,13 +165,26 @@ Page({
             return;
         }
 
-      // 执行注册操作，注册成功后重新登录
+      // 执行修改操作，修改成功后重新登录
       this.registerSuccessCallback();
     },
   
   
     registerSuccessCallback() {
-      // 注册成功后的逻辑
+    const email = this.data.email;
+      // 修改成功后的逻辑
+      wx.request({
+        url: 'http://10.133.13.150:5000/search',//根据具体的
+        method:'POST',
+        data:{
+          email: email,
+        },
+        success(r){
+          console.log(r.data)
+        }
+      })
+      
+
       wx.reLaunch({
         url: '/pages/login/login',
         success: function() {

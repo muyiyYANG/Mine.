@@ -1,0 +1,50 @@
+/* pages/notice/notice.wxss */
+.container {
+  padding: 20rpx;
+  height:100%;
+  
+}
+.header {
+  font-size: 40rpx;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30rpx;
+  color:red;
+}
+.notice-list {
+  height: 100vh;
+  background-color: #f8f8f8;
+  padding: 20rpx;
+}
+.notice-item {
+  background-color: white;
+  border-radius: 10rpx;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 5rpx rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+.notice-dot {
+  width: 20rpx;
+  height: 20rpx;
+  background-color: red;
+  border-radius: 50%;
+  position: absolute;
+  top: 10rpx;
+  right: 10rpx;
+}
+.notice-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+.notice-time {
+  font-size: 24rpx;
+  color: #999;
+  margin-bottom: 10rpx;
+}
+.notice-content {
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.5;
+}

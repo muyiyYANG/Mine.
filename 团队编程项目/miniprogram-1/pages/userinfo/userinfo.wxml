@@ -2,50 +2,61 @@
 <view class="container">
   <view class="user-info">
     <text class="label">姓名：</text>
-    <text class="value">{{name}}</text>
+    <text class="value" tap-hold="toggleEdit" wx:if="{{!editable}}">{{name}}</text>
+    <input class="input" value="{{name}}" bindinput="updateName" wx:if="{{editable}}"/>
   </view>
-  <view class="divider"></view>
+
   <view class="user-info">
     <text class="label">学号：</text>
-    <text class="value">{{studentId}}</text>
+    <text class="value" tap-hold="toggleEdit" wx:if="{{!editable}}">{{studentId}}</text>
+    <input class="input" value="{{studentId}}" bindinput="updateStudentId" wx:if="{{editable}}"/>
   </view>
-  <view class="divider"></view>
+
   <view class="user-info">
     <text class="label">学校：</text>
-    <text class="value">{{school}}</text>
+    <text class="value" tap-hold="toggleEdit" wx:if="{{!editable}}">{{school}}</text>
+    <input class="input" value="{{school}}" bindinput="updateSchool" wx:if="{{editable}}"/>
   </view>
-  <view class="divider"></view>
+ 
   <view class="user-info">
     <text class="label">学院：</text>
-    <text class="value">{{college}}</text>
+    <text class="value" tap-hold="toggleEdit" wx:if="{{!editable}}">{{college}}</text>
+    <input class="input" value="{{college}}" bindinput="updateCollege" wx:if="{{editable}}"/>
   </view>
-  <view class="divider"></view>
+ 
   <view class="user-info">
     <text class="label">专业：</text>
-    <text class="value">{{major}}</text>
+    <text class="value" tap-hold="toggleEdit" wx:if="{{!editable}}">{{major}}</text>
+    <input class="input" value="{{major}}" bindinput="updateMajor" wx:if="{{editable}}"/>
   </view>
-  <view class="divider"></view>
+
   <view class="user-info">
     <text class="label">年级：</text>
-    <text class="value">{{grade}}</text>
+    <text class="value" tap-hold="toggleEdit" wx:if="{{!editable}}">{{grade}}</text>
+    <input class="input" value="{{grade}}" bindinput="updateGrade" wx:if="{{editable}}"/>
   </view>
-  <view class="divider"></view>
+ 
   <view class="user-info">
     <text class="label">班级：</text>
-    <text class="value">{{class}}</text>
+    <text class="value" tap-hold="toggleEdit" wx:if="{{!editable}}">{{Class}}</text>
+    <input class="input" value="{{Class}}" bindinput="updateClass" wx:if="{{editable}}"/>
   </view>
-  <view class="divider"></view>
+
   <view class="user-info">
     <text class="label">学制：</text>
-    <text class="value">{{academicSystem}}</text>
+    <text class="value" tap-hold="toggleEdit" wx:if="{{!editable}}">{{academicSystem}}</text>
+    <input class="input" value="{{academicSystem}}" bindinput="updateAcademicSystem" wx:if="{{editable}}"/>
   </view>
-  <view class="divider"></view>
+  
   <view class="user-info">
     <text class="label">培养层次：</text>
-    <text class="value">{{cultivationLevel}}</text>
+    <text class="value" tap-hold="toggleEdit" wx:if="{{!editable}}">{{cultivationLevel}}</text>
+    <input class="input" value="{{cultivationLevel}}" bindinput="updateCultivationLevel" wx:if="{{editable}}"/>
   </view>
-  <button bindtap="editProfile" style="border: 1px solid gray;">编辑个人资料</button>
+  <button bindtap="editProfile" style="border: 1px solid gray;">保存</button>
 </view>
+
+
 
 
 

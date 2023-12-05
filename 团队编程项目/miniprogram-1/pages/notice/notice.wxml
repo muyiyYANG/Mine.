@@ -1,0 +1,14 @@
+<!--pages/notice/notice.wxml-->
+<view class="container">
+  <view class="header">消息通知</view>
+  <scroll-view class="notice-list" scroll-y="{{true}}">
+    <block wx:for="{{notices}}" wx:key="{{item.id}}">
+      <view class="notice-item">
+        <view class="notice-dot" wx:if="{{!item.read}}"></view>
+        <view class="notice-title">{{item.title}}</view>
+        <view class="notice-time">{{item.time}}</view>
+        <view class="notice-content">{{item.content}}</view>
+      </view>
+    </block>
+  </scroll-view>
+</view>

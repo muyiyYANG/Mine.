@@ -1,41 +1,13 @@
 <!--pages/userinfo1/userinfo1.wxml-->
-<view class="container">
-  <view class="form-item">
-    <text style="font-weight: bold;">姓名：</text>
-    <input type="text" placeholder="请输入姓名" bindinput="onNameInput" />
+<view class="container"> 
+  <view class="account-info">
+    <text class="label">账号ID：</text>
+    <text class="value">{{userInfo.account}}</text>
   </view>
-  <view class="form-item">
-    <text style="font-weight: bold;">学号：</text>
-    <input type="text" placeholder="请输入学号" bindinput="onStudentIdInput" />
+  <view class="div-line"></view>
+  <view class="account-info">
+    <text class="label">手机号：</text>
+    <text class="value">{{userInfo.number}}</text>
   </view>
-  <view class="form-item">
-    <text style="font-weight: bold;">学校：</text>
-    <input type="text" placeholder="请输入学校" bindinput="onSchoolInput" />
-  </view>
-  <view class="form-item">
-    <text style="font-weight: bold;">学院：</text>
-    <input type="text" placeholder="请输入学院" bindinput="onCollegeInput" />
-  </view>
-  <view class="form-item">
-    <text style="font-weight: bold;">专业：</text>
-    <input type="text" placeholder="请输入专业" bindinput="onMajorInput" />
-  </view>
-  <view class="form-item">
-    <text style="font-weight: bold;">年级：</text>
-    <input type="text" placeholder="请输入年级" bindinput="onGradeInput" />
-  </view>
-  <view class="form-item">
-    <text style="font-weight: bold;">班级：</text>
-    <input type="text" placeholder="请输入班级" bindinput="onClassInput" />
-  </view>
-  <view class="form-item">
-    <text style="font-weight: bold;">学制：</text>
-    <input type="text" placeholder="请输入学制" bindinput="onAcademicSystemInput" />
-  </view>
-  <view class="form-item">
-    <text style="font-weight: bold;">培养层次：</text>
-    <input type="text" placeholder="请输入培养层次" bindinput="onCultivationLevelInput" />
-  </view>
-  <button bindtap="submitForm" style="border: 1px solid gray;">保存</button>
+  <view class="div-line"></view>
 </view>
-

@@ -15,6 +15,7 @@ Page({
         email: '', // 添加email的初始值
         confirmPassword: '',// 添加confirmPassword的初始值
         code:'',
+        codes:'',
         showPassword1: false,
         showPassword2: false,
         showPassword3: false
@@ -54,11 +55,10 @@ Page({
         });
       },
     bindEmailInput: function(e) {
-      this.setData({
-        email: e.detail.value
-      });
+        this.setData({
+            email: e.detail.value
+        });
     },
-    // 相应的事件处理函数
     bindCodeInput: function(e) {
         this.setData({
           code: e.detail.value
@@ -91,7 +91,7 @@ Page({
         return false;
       }
     },
-  
+
    // 验证账号格式是否正确
     validateUsername(username) {
         if (/^\d{11}$/.test(username)) {
@@ -121,43 +121,80 @@ Page({
       }
     },
   
+    // 获取验证码 
+    getCode() {
+        const email = this.data.email;
+        
+          var that = this;
+          if (!that.data.counting) {
+            wx.showToast({
+              title: '验证码已发送',
+            });
+            wx.request({
+                url: 'http://10.133.13.150:5000/email',
+                method:'POST',
+                data:{
+                  email:email,
+                },
+                success: (r) => {
+                    console.log(r.data);
+                    const codes = r.data;
+                    this.setData({
+                        codes: codes  // Set codes in the data
+                      });
+                  }
+                });
+            // 开始倒计时60秒
+            that.countDown(that, 60);
+          }
+        },
+        
     // 登录、注册
   submit() {
     if (this.data.current === 1) {
       // 登录操作
       const dlusername = this.data.dlusername;
       const dlpassword = this.data.dlpassword;
-
-      // 检查账号密码是否正确
-      if (dlusername && dlpassword && this.checkLogin(dlusername, dlpassword)) {
-        // 账号密码正确，进行页面跳转
-        wx.redirectTo({
-          url: '/pages/activity/activity'
-        });
-      } else {
-        wx.showToast({
-          title: '账号或密码错误，请重新输入',
-          icon: 'none',
-          duration: 2000
-        });
-        // 重置账号密码输入框中的内容
-        this.setData({
-          dlusername: '',
-          dlpassword: ''
-        });
-      }
+        
+      wx.request({
+        url: 'http://10.133.13.150:5000/login',
+        method:'POST',
+        data:{
+          accountoremail: dlusername,
+          password: dlpassword
+        },
+        success: (r) => {
+            console.log(r.data);
+            if (r.data == '登录成功') {
+              wx.redirectTo({
+                url: '/pages/activity/activity'
+              });
+            } else {
+              wx.showToast({
+                title: r.data,
+                icon: 'none',
+                duration: 2000
+              });
+              this.setData({
+                dlusername: '',
+                dlpassword: ''
+              });
+            }
+        }
+      })
     } else {
-
-
     // 注册操作
     const username = this.data.username;
     const email = this.data.email;
     const code = this.data.code;
     const password = this.data.password;
     const confirmPassword = this.data.confirmPassword;
+    const codes = this.data.codes;
     console.log('username:', username);
     console.log('email:', email);
     console.log('password:', password);
+    console.log('code:', code);
+    console.log('codes:', codes);
 
       // 验证账号、邮箱和密码格式
       if (!this.validateUsername(username)) {
@@ -202,28 +239,59 @@ Page({
           });
         return;
       }
-        // 判断两次输入密码是否一致
-        if (password !== confirmPassword) {
-            wx.showToast({
-            title: '两次输入密码不一致',
-            icon: 'none',
-            duration: 2000
-            });
-            // 重置账号密码输入框中的内容
+    // 判断两次输入密码是否一致
+      if (password !== confirmPassword) {
+        wx.showToast({
+        title: '两次输入密码不一致',
+        icon: 'none',
+        duration: 2000
+        });
+        // 重置账号密码输入框中的内容
         this.setData({
             password: '',
             confirmPassword:''
-          });
+        });
             return;
-        }
-
+      }    
+    // 判断验证码是否正确
+    if (code.toString().trim() !== codes.toString().trim()) {
+        wx.showToast({
+        title: '验证码输入错误',
+        icon: 'none',
+        duration: 2000
+        });
+        this.setData({
+        code: '',
+        password: '',
+        confirmPassword: ''
+        });
+        return;
+    }
       // 执行注册操作，注册成功后重新登录
       this.registerSuccessCallback();
     }
   },
   
+    
+
     registerSuccessCallback() {
+    const username = this.data.username;
+    const email = this.data.email;
+    const password = this.data.password;
       // 注册成功后的逻辑
+      wx.request({
+        url: 'http://10.133.13.150:5000/regist',
+        method:'POST',
+        data:{
+          email: email,
+          account: username,
+          password:password
+        },
+        success(r){
+          console.log(r.data)
+        }
+      })
+
       wx.reLaunch({
         url: '/pages/login/login',
         success: function() {
@@ -263,23 +331,13 @@ Page({
       });
     },
   
-    // 获取验证码 
-    getCode() {
-      var that = this;
-      if (!that.data.counting) {
-        wx.showToast({
-          title: '验证码已发送',
-        });
-        // 开始倒计时60秒
-        that.countDown(that, 60);
-      }
-    },
+    
   
     // 倒计时60秒
     countDown(that, count) {
       if (count == 0) {
         that.setData({
-          codeText: '获取验证码',
+          codeText: '重新获取验证码',
           counting: false
         });
         return;

@@ -1,46 +1,76 @@
 /**index.wxss**/
-.head-height {
-  height: 240rpx;
+.page {
+  height:100%;
+  display: flex;
+  flex-direction: column;
+  
 }
-
-.head {
-  display:flex;
-  width: 100%;
+.scrollarea {
+  width:100%;
+  height:150px;
   background-color: lightskyblue;
-  align-items: center;
-}
-
-.login-button {
-  opacity: 0; 
-  width: 100%;
-  position: fixed;
+  
 }
 
 .userinfo {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 100%;
-  position: fixed;
+  height:0px;
+  align-items: flex-end;
+  padding: 25px;
+  
 }
 
 .userinfo-avatar {
-  width: 150rpx;
-  height: 150rpx;
-  margin: 30rpx;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  border: 1px solid #000; 
+  
+}
+
+.avatar-wrapper {
+  padding:0px;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  border: 1px solid #000; 
+}
+
+.avatar {
+  display: block;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
 }
 
 .userinfo-nickname {
-  color: #333333;
-  font-size: 42rpx;
-}
-.list-wrapper {
-  width: 100%;
+  font-size: 24px;
+  color: #333;
+  align-items: flex-end;
+  font-weight: bold;
 }
 
-/* 横着的分割View样式 */
-/*分割线样式*/
+.nickname-wrapper {
+  display: flex;
+  width: 100%;
+  align-items: flex-end;
+  padding-left: 15px;
+  padding-bottom: 40px;
+  color:black;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.nickname-input {
+  flex: 2;
+}
+
+
+.list-wrapper {
+  width: 100%;
+  
+}
+
 .div-line{
   background: #E0E3DA;
   width: 100%;

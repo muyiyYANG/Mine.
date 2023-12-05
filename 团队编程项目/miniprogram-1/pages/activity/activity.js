@@ -22,8 +22,7 @@ Page({
               id: '1',
               src: '/pages/images/shouye1.png',
               srcSelected: '/pages/images/shouye.png',
-              title: '首页',
-              pagePath: '/pages/activity/activity'
+              title: '首页'
             },
             {
               id: '2',
@@ -142,10 +141,11 @@ Page({
                 wx.navigateTo({
                     url: '/pages/detail' + (index + 1) + '/detail' + (index + 1),
                 });
+                this.setData({
+                    keyword:''
+                  });
             } else {
-                wx.navigateTo({
-                    url: '/pages/activity/activity',
-                });
+               
             }
         } else {
             // 如果搜索关键词为空，则不执行任何操作

@@ -2,11 +2,7 @@
 Page({
   data: { 
     menuitems: [
-      { text: '账号信息', url: '', icon: '', tips: '' },
-      { text: '隐私设置', url: '', icon: '', tips: ''  },
-      { text: '功能设置', url: '', icon: '', tips: ''  },
-      { text: '关于我们', url: '', icon: '', tips: ''  },
-      { text: '反馈与投诉', url: '', icon: '', tips: ''  },
+      { text: '账号信息', url: '/pages/userinfo1/userinfo1', icon: '', tips: '' },
     ]
   },
   /**

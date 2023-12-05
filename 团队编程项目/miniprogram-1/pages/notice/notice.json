@@ -1,7 +1,7 @@
 {
   "navigationBarBackgroundColor": "#44ADFB",
-    "navigationBarTitleText": "基本信息",
+    "navigationBarTitleText": "消息通知",
     "backgroundColor": "#eeeeee",
     "backgroundTextStyle": "light",
-  "usingComponents": {}
+    "usingComponents": {}
 }
